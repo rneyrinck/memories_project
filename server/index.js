@@ -8,13 +8,13 @@ import postRoutes from './routes/posts.js';
 const app = express();
 // every route starts with posts - default route
 // localhost:5000/posts
-app.use('/posts', postRoutes)
 
 app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
 app.use(cors());
 
-// https://www.youtube.com/watch?v=ngc9gnGgUdA&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=2&t=0s
+app.use('/posts', postRoutes)
+
 // this will be in .env, mongoDB database connection
 const CONNECTION_URL = "mongodb+srv://rneyrinck:092295@cluster0.8iq4lh0.mongodb.net/?retryWrites=true&w=majority"
 
