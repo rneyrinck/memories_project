@@ -2,8 +2,13 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose, { mongo } from 'mongoose';
 import cors from 'cors';
+// has to include filetype
+import postRoutes from './routes/posts.js';
 
 const app = express();
+// every route starts with posts - default route
+// localhost:5000/posts
+app.use('/posts', postRoutes)
 
 app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
